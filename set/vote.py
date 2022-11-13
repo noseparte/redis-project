@@ -1,6 +1,3 @@
-from redis import Redis
-redisClient = Redis()
-
 def vote_up_key(vote_target):
     return vote_target + "::vote_up"
 
@@ -9,7 +6,7 @@ def vote_down_key(vote_target):
 
 class Vote:
     def __init__(self, client, vote_target):
-        self.client = redisClient
+        self.client = client
         self.vote_up_set = vote_up_key(vote_target)
         self.vote_down_set = vote_down_key(vote_target)
 
