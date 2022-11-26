@@ -1,7 +1,7 @@
 # coding:utf-8
 from time import time
 
-
+# 文章
 class Article:
 
     def __init__(self, client, article_id):
@@ -14,7 +14,7 @@ class Article:
 
     def create(self, title, content, author):
         """
-        创建一篇新文章
+        创建一篇新文章,创建成功时返回TRUE，因为文章已存在而导致创建失败时返回FALSE
         :param title:
         :param content:
         :param author:
@@ -56,3 +56,24 @@ class Article:
         if author is not True:
             article_data[self.author_key] = author
         return self.client.mset(article_data)
+
+
+    ###########################################################################
+    ## 给文章存储程序加上文章长度计数功能和文章预览功能                               ##
+    ###########################################################################
+
+    def get_content_len(self):
+        """
+        返回文章内容的字节长度
+        :return:
+        """
+        return self.client.strlen(self.content_key)
+
+    def get_content_preview(self, preview_len):
+        """
+        返回指定长度的文章预览内容
+        :return:
+        """
+        start_index = 0
+        end_index = preview_len - 1
+        return self.client.getrange(self.content_key, start_index, end_index)

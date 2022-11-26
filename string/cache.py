@@ -2,9 +2,10 @@ class Cache:
 
     def __init__(self, client):
         self.client = client
+
     def set(self, key, value):
         """
-        把需要被缓存的数据存储到键key里面
+        把需要被缓存的数据存储到键key里面，如果键key已经有值，那么使用新值去覆盖旧值
         :param key:
         :param value:
         :return:
@@ -13,7 +14,7 @@ class Cache:
 
     def get(self, key):
         """
-        通过key获取value
+        获取存储在键key里面的缓存数据，如果key不存在，那么返回None
         :param key:
         :return:
         """
@@ -21,7 +22,8 @@ class Cache:
 
     def update(self, key, new_value):
         """
-        更新key对应的value
+        对键key存储的缓存数据进行更新，并返回键key在被更新之前存储的缓存数据。
+        如果键key之前并没有存储数据，那么返回None
         :param key:
         :param new_value:
         :return:
