@@ -10,6 +10,7 @@
 - [示例: 缓存](string/cache.py)
 - [示例: 锁](string/lock.py)
 - [示例: 存储文章信息](string/article.py)
+- [示例: 使用字符串键实现高效的日志存储程序](string/log.py)
 
 ### 哈希(hash)
 - [示例: 使用散列实现的短网址程序](hash/shorty_url.py)
