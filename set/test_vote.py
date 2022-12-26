@@ -3,7 +3,9 @@
 import unittest
 
 from redis import Redis
-from vote import Vote
+
+from set.vote import Vote
+
 
 class TestVote(unittest.TestCase):
 
