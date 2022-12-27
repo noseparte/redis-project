@@ -10,7 +10,7 @@ from set.vote import Vote
 class TestVote(unittest.TestCase):
 
     def setUp(self):
-        self.client = Redis("192.168.1.7", 6379, 1)
+        self.client = Redis("192.168.1.5", 6379, 1)
         self.client.flushdb()
 
         self.vote = Vote(self.client, "question::10086")
