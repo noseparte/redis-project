@@ -10,7 +10,7 @@ from strings.lock import Lock
 class TestLock(unittest.TestCase):
 
     def setUp(self):
-        self.client = Redis("192.168.1.7", 6379, 1)
+        self.client = Redis("192.168.1.5", 6379, 1)
         self.client.flushdb()
 
         self.lock = Lock(self.client, "test-lock")
